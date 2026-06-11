@@ -1,0 +1,243 @@
+@import "tailwindcss";
+@import "./styles/terminal.css";
+
+/*----------- TOKENS ---------------------*/
+
+:root {
+  --bg: #060e18;
+  --bg-h: #0b1825;
+  --green: #00ff9c;
+  --green-d: #00cc7a;
+  --green-x: rgba(0, 255, 156, 0.05);
+  --amber: #ffb000;
+  --amber-d: #d98a00;
+  --amber-x: rgba(255, 176, 0, 0.06);
+  --white: #f5f5f5;
+  --gray: #8899aa;
+  --gray-d: #3d5168;
+  --border: #0e2236;
+  --red: #ff4757;
+  --font: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
+}
+
+/*----------- BASE ---------------------*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 13px;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*----------- APP GRID ---------------------*/
+
+#app {
+  display: grid;
+  grid-template-columns: 224px 1fr;
+  grid-template-rows: 30px 1fr 46px;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#app.on {
+  opacity: 1;
+}
+
+/*----------- APP GRID ---------------------*/
+
+#boot {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(32px, 6vw, 80px);
+  z-index: 999;
+  transition: opacity 0.6s ease;
+}
+#boot.fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*----------- TOPBAR ---------------------*/
+
+#topbar {
+  grid-column: 1 / -1;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 12px;
+}
+
+/*----------- SIDEBAR ---------------------*/
+
+#sidebar {
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 0;
+}
+#sidebar::-webkit-scrollbar {
+  width: 2px;
+}
+#sidenar::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+/*----------- TERMINAL ---------------------*/
+
+#terminal {
+  background: var(--bg);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 24px 12px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+#terminal::-webkit-scrollbar {
+  width: 2px;
+}
+#terminal::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+/*----------- INPUT BAR ---------------------*/
+
+#inputbar {
+  grid-column: 1 / -1;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  gap: 10px;
+}
+
+/*----------- SCANLINES ---------------------*/
+
+#terminal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.025) 2px,
+    rgba(0, 0, 0, 0.025) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+#terminal > * {
+  position: relative;
+  z-index: 2;
+}
+
+/*----------- GLITCH sur le titre topbar ---------------------*/
+@keyframes glitch {
+  0%,
+  88%,
+  100% {
+    transform: none;
+    text-shadow: none;
+  }
+  90% {
+    transform: translateX(-2px);
+    text-shadow: 2px 0 var(--green);
+  }
+  92% {
+    transform: translateX(2px);
+    text-shadow: -2px 0 var(--red);
+    clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%);
+  }
+  94% {
+    transform: translateX(-1px);
+    text-shadow: 1px 0 var(--amber);
+    clip-path: none;
+  }
+  96% {
+    transform: none;
+    text-shadow: none;
+  }
+}
+.glitch {
+  animation: glitch 8s ease-in-out infinite;
+  display: inline-block;
+}
+
+/*----------- ENTRÉE des blocs terminal ---------------------*/
+@keyframes fu {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+    filter: brightness(1.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: brightness(1);
+  }
+}
+.ob {
+  margin-bottom: 16px;
+  animation: fu 0.18s ease;
+}
+
+/*----------- BOOT LINES ---------------------*/
+.bl {
+  font-size: 13px;
+  line-height: 1.9;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.13s ease,
+    transform 0.13s ease;
+  white-space: pre;
+}
+.bl.show {
+  opacity: 1;
+  transform: none;
+}
+.bl .ok {
+  color: var(--green);
+}
+.bl .pr {
+  color: var(--amber);
+}
+.bl .hl {
+  color: var(--white);
+}
+
+/*----------- BLINK indicateur live ---------------------*/
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}

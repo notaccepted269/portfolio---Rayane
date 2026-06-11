@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KERNEL — Rayane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="boot"></div>
+
+    <div id="app">
+      <div id="topbar">
+        <div class="wm" style="display: flex; gap: 5px">
+          <span class="r"></span>
+          <span class="y"></span>
+          <span class="g"></span>
+        </div>
+        <div class="tb-title">
+          <span class="glitch">KERNEL v2.0</span>
+          &nbsp;—&nbsp;
+          <span style="color: var(--gray-d)">rayane@portfolio — bash</span>
+        </div>
+        <div class="tb-right">
+          <span class="tb-clock" id="clock"></span>
+          <div class="tb-status">
+            <div class="live"></div>
+            <span>ONLINE</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="sidebar">
+        <div class="sb-label">filesystem</div>
+        <div id="ftree"></div>
+        <div style="flex: 1"></div>
+        <div style="padding: 0 14px 4px">
+          <div class="xs dim" style="line-height: 1.7">
+            <span class="a2">help</span> — list commands<br />
+            <span class="a2">Tab</span> — autocomplete
+          </div>
+        </div>
+      </div>
+
+      <div id="terminal"></div>
+
+      <div id="inputbar">
+        <div class="ipr">
+          <span class="u">rayane@portfolio</span>
+          <span class="s">:</span>
+          <span class="p">~</span>
+          <span class="dl">$</span>
+        </div>
+        <input
+          type="text"
+          id="cmdin"
+          placeholder="enter a command…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <span class="ihint">↑↓ · Tab</span>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
