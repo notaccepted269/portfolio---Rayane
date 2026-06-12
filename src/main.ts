@@ -33,6 +33,25 @@ async function init(): Promise<void> {
   // — Boot sequence
   await runBoot(CFG);
 
+  // — Sidebar toggle (mobile)
+  const btnSidebar = document.getElementById("btn-sidebar");
+  const sidebarEl2 = document.getElementById("sidebar")!;
+  btnSidebar?.addEventListener("click", () => {
+    sidebarEl2.classList.toggle("open");
+  });
+
+  // Ferme la sidebar si on clique ailleurs sur mobile
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (
+      !target.closest("#sidebar") &&
+      !target.closest("#btn-sidebar") &&
+      window.innerWidth < 768
+    ) {
+      sidebarEl2.classList.remove("open");
+    }
+  });
+
   // — Affichage initial après le boot
   document.querySelectorAll<HTMLElement>(".tn").forEach((el) => {
     el.classList.toggle("act", el.dataset.cmd === "whoami");

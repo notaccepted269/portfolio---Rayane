@@ -548,3 +548,67 @@
   box-shadow: 0 0 5px var(--green);
   animation: blink 2.5s ease-in-out infinite;
 }
+
+/*----------- RESPONSIVE ---------------------*/
+
+/* Projets : 1 colonne sur mobile */
+.pg {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .pg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Neofetch : colonne sur mobile, ligne sur desktop */
+.nf {
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ASCII art caché sur mobile — trop large */
+.nf-art {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .nf {
+    flex-direction: row;
+    gap: 30px;
+  }
+  .nf-art {
+    display: block;
+  }
+}
+
+/* Stack : texte plus petit sur mobile */
+@media (max-width: 480px) {
+  .sk-ch {
+    font-size: 11px;
+  }
+  .sk-item {
+    font-size: 10.5px;
+  }
+  .nf-row {
+    font-size: 11px;
+  }
+  .nf-k {
+    min-width: 78px;
+    font-size: 10px;
+  }
+}
+
+/* Input bar : prompt simplifié sur mobile */
+@media (max-width: 480px) {
+  .ipr .u {
+    display: none;
+  }
+  .ipr .s {
+    display: none;
+  }
+  .ipr .p {
+    display: none;
+  }
+}
