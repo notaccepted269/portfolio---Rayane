@@ -4,7 +4,7 @@ import { HistoryManager } from "../core/HistoryManager.ts";
 import { CommandRegistry } from "../core/CommandRegistry.ts";
 import { cmdWhoami } from "./whoami.ts";
 import { cmdProjects } from "./projects.ts";
-import { cmdExperience } from "./experience.ts";
+import { cmdJourney } from "./journey.ts";
 import { cmdStack } from "./stack.ts";
 import { cmdContact } from "./contact.ts";
 import { cmdTree } from "./tree.ts";
@@ -32,14 +32,14 @@ export function buildRegistry(history: HistoryManager): CommandRegistry {
 
   r.register("whoami", "Profile & system info", () => cmdWhoami());
   r.register("projects", "Browse completed projects", () => cmdProjects());
-  r.register("experience", "Career timeline", () => cmdExperience());
-  r.register("stack", "Technology tree", () => cmdStack());
+  r.register("journey", "My path & formation", () => cmdJourney());
   r.register("contact", "Get in touch", () => cmdContact());
   r.register("tree", "Filesystem overview", () => cmdTree());
   r.register("help", "List available commands", () => cmdHelp(r));
   r.register("ls", "List directory contents", (args) => cmdLs(args));
   r.register("sudo", "Elevated privileges", (args) => cmdSudo(args));
   r.register("cat", "Read file contents", (args) => cmdCat(args));
+  r.register("stack", "Technology tree", () => cmdStack());
   r.register("history", "Command history", () => {
     const all = history.getAll();
     if (!all.length) return `<span class="dim sm">No history.</span>`;

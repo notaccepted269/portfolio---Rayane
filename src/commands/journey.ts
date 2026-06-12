@@ -1,7 +1,7 @@
 import { esc } from "../utils.ts";
 import { JOURNEY } from "../config.ts";
 
-export function cmdExperience(): string {
+export function cmdJourney(): string {
   const entries = JOURNEY.map((e) => {
     const logs = e.logs
       .map((l) => `<div class="exp-log">${esc(l)}</div>`)
@@ -21,7 +21,7 @@ export function cmdExperience(): string {
   }).join("");
 
   return `<div class="dim sm" style="margin-bottom:10px">
-    <span class="a">/var/log/experience.log</span>
+    <span class="a">/var/log/journey.log</span>
   </div>
   ${entries}
   <div class="dim xs mt6">-- END OF LOG --</div>`;
