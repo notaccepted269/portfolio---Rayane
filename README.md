@@ -182,7 +182,7 @@ export const CFG = {
   email:      'rayane@example.com',
   github:     'https://github.com/rayane',
   linkedin:   'https://linkedin.com/in/rayane',
-  cv_url:     '/rayane_cv.pdf',          // empty string disables CV download
+  cv_url:     '/rayane_cv.pdf',          
   kernel:     'Laravel + React + Node.js',
   shell:      'Zsh 5.9',
   uptime:     '3 years',
