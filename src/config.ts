@@ -12,7 +12,7 @@ export const CFG: ProfileConfig = {
   email: "rayanemed.pro@gmail.com",
   github: "https://github.com/notaccepted269",
   linkedin: "https://linkedin.com/in/rayane-mohamed269/",
-  cv_url: "",
+  cv_url: "/CV_Rayane.pdf",
   kernel: "Algorithms · Compilers · Systems · Databases",
   shell: "Fish",
   uptime: "2 years",
