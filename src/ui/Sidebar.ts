@@ -19,7 +19,12 @@ const NODES: SidebarNode[] = [
     lbl: "projects",
     ico: "📁",
     cmd: "projects",
-    ch: ["SaaS", "IA", "Open Source", "Clients"],
+    ch: [
+      "Systems & Software",
+      "Web & Data",
+      "Security",
+      "Language Engineering",
+    ],
     badge: "6",
   },
   { lbl: "journey", ico: "📋", cmd: "journey" },
@@ -27,7 +32,7 @@ const NODES: SidebarNode[] = [
     lbl: "stack",
     ico: "⚙",
     cmd: "stack",
-    ch: ["Langages", "Frontend", "Backend", "DevOps"],
+    //ch: ["Langages", "Frontend", "Backend", "DevOps"],
   },
   { lbl: "contact", ico: "✉", cmd: "contact" },
 ];
