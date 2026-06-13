@@ -20,7 +20,7 @@ export const CFG: ProfileConfig = {
   status: "Open to Opportunities",
   education: "Bachelor's Degree in Computer Science",
   languages: "French (native), English (professional)",
-  github_h: "https://github.com/notaccepted269",
+  github_h: "notaccepted269",
   open_to: "Internship · Apprenticeship",
 };
 
