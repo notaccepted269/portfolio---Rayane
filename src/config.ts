@@ -119,14 +119,14 @@ export const JOURNEY: ExperienceEntry[] = [
 export const STACK: StackCategory[] = [
   {
     name: "Langages",
-    items: ["OCaml", "C", "C#", "Java", "JavaScript/TypeScript", "SQL", "Bash"],
+    items: ["OCaml", "C", "Java (en cours)", "SQL", "Bash"],
   },
   {
     name: "Programmation",
     items: [
       "Functional Programming",
       "Object-Oriented Programming",
-      "Compiler Design",
+      //"Compiler Design",
       "Data Structures",
       "Algorithms",
     ],
@@ -145,8 +145,8 @@ export const STACK: StackCategory[] = [
     name: "Bases de Données",
     items: [
       "SQL",
-      "PostgreSQL",
-      "MySQL",
+      //"PostgreSQL",
+      //"MySQL",
       "Database Design",
       "ER Modeling",
       "Normalization",
@@ -175,7 +175,7 @@ export const STACK: StackCategory[] = [
   },
   {
     name: "Outils",
-    items: ["Git", "Makefile", "SDL2", ".NET 9", "LibreOffice Base"],
+    items: ["Git", "Makefile", "SDL2", /*".NET 9",*/ "LibreOffice Base"],
   },
 ];
 
