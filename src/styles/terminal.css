@@ -64,16 +64,32 @@
 /*----------- NEOFETCH ---------------------*/
 .nf {
   display: flex;
-  gap: 30px;
-  padding: 4px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 860px;
 }
+
 .nf-art {
-  color: var(--amber);
-  font-size: 9.5px;
-  line-height: 1.15;
+  display: none;
+  color: var(--green);
+  font-size: 11.5px;
+  line-height: 1.2;
   white-space: pre;
   flex-shrink: 0;
-  text-shadow: 0 0 30px rgba(255, 176, 0, 0.3);
+  text-shadow: 0 0 30px #00cc7a;
+}
+
+@media (min-width: 640px) {
+  .nf {
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  .nf-art {
+    display: block;
+  }
 }
 .nf-info {
   flex: 1;
@@ -100,7 +116,7 @@
   line-height: 1.8;
 }
 .nf-k {
-  color: var(--green);
+  color: var(--amber);
   min-width: 96px;
   font-size: 11px;
 }
@@ -108,7 +124,7 @@
   color: var(--white);
 }
 .nf-v.av {
-  color: var(--amber);
+  color: var(--green);
 }
 .nf-palette {
   display: flex;
